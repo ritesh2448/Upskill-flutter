@@ -35,22 +35,22 @@ class _SpecificTypePostsState extends State<SpecificTypePosts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 0,
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.black,
         title: Text(
           '${widget.type}',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.green),
         ),
       ),
       body:typePost.isEmpty ? Center(
         child: Text(
           'No Posts of this type',
-          style: TextStyle(color: Colors.grey, fontSize: 25),
+          style: TextStyle(color: Colors.red, fontSize: 25),
         ),
       ) : ListView.builder(
         physics: NeverScrollableScrollPhysics(),

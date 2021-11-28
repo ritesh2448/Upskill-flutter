@@ -6,23 +6,23 @@ import 'package:flutter/material.dart';
 List<Map<String, dynamic>> items = [
   {
     "placeImage": "images/tech.jpg",
-    "placeName": "Technology",
+    "placeName": "Science",
   },
   {
     "placeImage": "images/politics.jpg",
-    "placeName": "Politics",
+    "placeName": "Arts",
   },
   {
     "placeImage": "images/fashion.png",
-    "placeName": "Fashion",
+    "placeName": "Commerce",
   },
   {
     "placeImage": "images/social.jpg",
-    "placeName": "Social Awareness",
+    "placeName": "Acedemic",
   },
   {
     "placeImage": "images/finance.jpeg",
-    "placeName": "Finance",
+    "placeName": "Non Acedemic",
   },
   {
     "placeImage": "images/entertain.jpg",

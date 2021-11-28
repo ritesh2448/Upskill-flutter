@@ -31,6 +31,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
   String _chosenValue = "-----Post Type------";
   bool loading = false;
   TextEditingController _titleController = TextEditingController();
+  TextEditingController _feesController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
   String _type;
   File _selectedImage;
@@ -40,6 +41,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
     // TODO: implement dispose
     super.dispose();
     _titleController.dispose();
+    _feesController.dispose();
     _contentController.dispose();
   }
 
@@ -57,9 +59,10 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
       });
       final database = Provider.of<DatabaseServices>(context, listen: false);
       String title = _titleController.text;
+      String fees = _feesController.text;
       String content = _contentController.text;
       String type = _chosenValue;
-      if (title == null || content == null || type == '-----Post Type-----') {
+      if (title == null || content == null ||fees == null|| type == '-----Post Type-----') {
         throw PlatformException(
           code: 'Field empty error',
           details: 'None of the field can be empty',
@@ -80,6 +83,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
             widget.uid,
             Post(
               title: title,
+              fees :fees,
               content: content,
               type: type,
               datetime: datetime,
@@ -123,9 +127,9 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.blueGrey,
+          color: Colors.green,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
       ),
       body: Stack(
@@ -135,7 +139,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           Padding(
@@ -146,28 +150,11 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Center(
-                    child: ColorizeAnimatedTextKit(
-                      text: [
-                        "New Post",
-                        "Make It",
-                        "Worth Reading",
-                        "All The Best!",
-                      ],
-                      textStyle: TextStyle(
-                          fontSize: 30.0,
-                          fontFamily: "Horizon",
-                          fontWeight: FontWeight.bold),
-                      colors: [
-                        Colors.purple,
-                        Colors.blue,
-                        Colors.yellow,
-                        Colors.red,
-                      ],
-                      textAlign: TextAlign.start,
-                      speed: Duration(milliseconds: 100),
-                      alignment: AlignmentDirectional.center,
-                      // or Alignment.topLeft
-                    ),
+                    child: Text(
+                      'NEW POST',
+                      style: TextStyle(color:Colors.green,fontSize: 30, ),
+
+                    )
                   ),
                   SizedBox(
                     height: 55,
@@ -179,7 +166,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                       border: Border.all(
-                          color: Colors.blueGrey,
+                          color: Colors.green,
                           style: BorderStyle.solid,
                           width: 2),
                     ),
@@ -187,18 +174,18 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                       dropdownColor: Colors.black,
                       icon: Icon(
                         Icons.arrow_downward,
-                        color: Colors.blueGrey,
+                        color: Colors.green,
                       ),
                       value: _chosenValue,
                       isExpanded: true,
                       underline: Container(),
                       items: <String>[
                         '-----Post Type------',
-                        'Technology',
-                        'Politics',
-                        'Fashion',
-                        'Social Awareness',
-                        'Finance',
+                        'Science',
+                        'Arts',
+                        'Commerce',
+                        'Acedemic',
+                        'Non Acedemic',
                         'Entertainment',
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
@@ -207,7 +194,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                             value,
                             style: TextStyle(
                               fontSize: 20,
-                              color: Colors.blueGrey,
+                              color: Colors.white
                             ),
                           ),
                         );
@@ -219,6 +206,8 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                       },
                     ),
                   ),
+                  SizedBox(height: 15),
+                  _feesTextField(),
                   SizedBox(height: 15),
                   _addImageButton(),
                   SizedBox(height: 15),
@@ -243,7 +232,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
           side: BorderSide(
-            color: Colors.blueGrey,
+            color: Colors.green,
             width: 2,
             style: BorderStyle.solid,
           ),
@@ -253,12 +242,12 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
             _selectedImage != null
                 ? Text(
                     '${basename(_selectedImage.path)}',
-                    style: TextStyle(color: Colors.blueGrey),
+                    style: TextStyle(color: Colors.white),
                   )
                 : Text(
                     'Pick Image',
                     style: TextStyle(
-                      color: Colors.blueGrey,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -273,7 +262,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: Colors.blueGrey,
+        color: Colors.green,
       ),
       child: FlatButton(
         shape: RoundedRectangleBorder(
@@ -282,15 +271,14 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
         onPressed: () => _post(context),
         child: Center(
             child: loading
-                ? CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-                  )
-                : TyperAnimatedTextKit(
-                    speed: Duration(milliseconds: 300),
-                    text: ['Post'],
-                    textStyle:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  )),
+              ? CircularProgressIndicator(
+            backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.green),
+                )
+            : Text('POST',
+            style: TextStyle(color: Colors.black),)
+                ),
       ),
     );
   }
@@ -298,25 +286,25 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
   Widget _contentTextField() {
     return TextFormField(
       controller: _contentController,
-      cursorColor: Colors.blueGrey,
-      style: TextStyle(fontSize: 18, color: Colors.blueGrey),
+      cursorColor: Colors.green,
+      style: TextStyle(fontSize: 18, color: Colors.white),
       autocorrect: true,
       maxLines: 10,
       keyboardType: TextInputType.multiline,
       decoration: InputDecoration(
         alignLabelWithHint: true,
         labelText: 'Content',
-        labelStyle: TextStyle(color: Colors.blueGrey),
+        labelStyle: TextStyle(color: Colors.white),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.blueGrey,
+            color: Colors.green,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.blueGrey,
+            color: Colors.green,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(15),
@@ -328,21 +316,47 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
   Widget _titleTextField() {
     return TextFormField(
       controller: _titleController,
-      cursorColor: Colors.blueGrey,
-      style: TextStyle(fontSize: 18, color: Colors.blueGrey),
+      cursorColor: Colors.green,
+      style: TextStyle(fontSize: 18, color: Colors.white),
       decoration: InputDecoration(
         labelText: 'Title',
-        labelStyle: TextStyle(color: Colors.blueGrey),
+        labelStyle: TextStyle(color: Colors.white),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.blueGrey,
+            color: Colors.green,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.blueGrey,
+            color: Colors.green,
+            width: 2.0,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+    );
+  }
+
+   Widget _feesTextField() {
+    return TextFormField(
+      controller: _feesController,
+      cursorColor: Colors.green,
+      style: TextStyle(fontSize: 18, color: Colors.white),
+      decoration: InputDecoration(
+        labelText: 'Fees',
+        labelStyle: TextStyle(color: Colors.white),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.green,
+            width: 2.0,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.green,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(15),

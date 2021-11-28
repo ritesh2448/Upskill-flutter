@@ -36,16 +36,16 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: Text(
           'Profile',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.green),
         ),
         actions: <Widget>[
           FlatButton.icon(
@@ -53,8 +53,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 await widget.auth.logout();
                 Navigator.of(context).pop();
               },
-              icon: Icon(Icons.exit_to_app),
-              label: Text('Logout'))
+              icon: Icon(Icons.exit_to_app,color: Colors.green,),
+              
+              label: Text('Logout',style: TextStyle(color: Colors.green),))
         ],
       ),
       body: Padding(
@@ -64,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Center(
               child: Column(
                 children: <Widget>[
-                  Icon(Icons.person,
+                  Icon(Icons.person,color: Colors.white,
 
                     size: 45,
                   ),
@@ -75,12 +76,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       ? Center(
                           child: CircularProgressIndicator(
                             valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.blueGrey),
+                                AlwaysStoppedAnimation<Color>(Colors.green),
                           ),
                         )
                       : Text(
                           '${user.firstName} ${user.lastName}',
                           style: TextStyle(
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
                           ),
@@ -94,16 +96,16 @@ class _ProfilePageState extends State<ProfilePage> {
             Container(
               height: 50,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: Colors.black,
                       offset: Offset(4, 4),
                       blurRadius: 8,
                       spreadRadius: 2,
                     ),
                     BoxShadow(
-                      color: Colors.white,
+                      color: Colors.black,
                       offset: Offset(-4, -4),
                       blurRadius: 8,
                       spreadRadius: 2,
@@ -113,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                color: Colors.white,
+                color: Colors.green,
                 onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Update Profile',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(color:Colors.white,fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.arrow_forward_ios),
                   ],
@@ -137,13 +139,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: Colors.black,
                       offset: Offset(4, 4),
                       blurRadius: 8,
                       spreadRadius: 2,
                     ),
                     BoxShadow(
-                      color: Colors.white,
+                      color: Colors.black,
                       offset: Offset(-4, -4),
                       blurRadius: 8,
                       spreadRadius: 2,
@@ -153,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                color: Colors.white,
+                color: Colors.green,
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -168,7 +170,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'My Posts',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.arrow_forward_ios),
                   ],

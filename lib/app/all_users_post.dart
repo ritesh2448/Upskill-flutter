@@ -26,7 +26,7 @@ class _AllUsersPostState extends State<AllUsersPost> {
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 2,
         backgroundColor: Colors.red,
-        textColor: Colors.white,
+        textColor: Colors.green,
         fontSize: 16.0);
   }
   @override
@@ -39,20 +39,20 @@ class _AllUsersPostState extends State<AllUsersPost> {
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 3,
         backgroundColor: Colors.black,
-        textColor: Colors.white,
+        textColor: Colors.red,
         fontSize: 16.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.black,
         elevation: 0,
-        title: Text('Your Posts', style: TextStyle(color: Colors.black),),
+        title: Text('Your Posts', style: TextStyle(color: Colors.green),),
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
       ),
       body: SingleChildScrollView(
@@ -66,7 +66,7 @@ class _AllUsersPostState extends State<AllUsersPost> {
                   child: Text(
                     'You don\'t have any posts',
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.green,
                       fontSize: 25,
                     ),
                   ),
@@ -86,7 +86,7 @@ class _AllUsersPostState extends State<AllUsersPost> {
                       child: Center(
                         child: Icon(
                           Icons.delete,
-                          color: Colors.white,
+                          color: Colors.red,
                         ),
                       ),
                     ),

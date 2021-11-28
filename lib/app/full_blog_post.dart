@@ -16,16 +16,16 @@ class _FullBlogPostState extends State<FullBlogPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.green, //change your color here
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
         title: Text(
           '${widget.post.type}',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.green),
         ),
 
       ),
@@ -55,7 +55,7 @@ class _FullBlogPostState extends State<FullBlogPost> {
                     Text(
                       '${widget.post.title}',
                       style: TextStyle(
-                        color: Colors.blueGrey,
+                        color: Colors.white,
                         fontSize: 30,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold,
@@ -65,14 +65,31 @@ class _FullBlogPostState extends State<FullBlogPost> {
                       height: 15,
                     ),
                     Text(
+                      "Fees: Rs.${widget.post.fees}",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 20,color: Colors.green),
+                      
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "Description",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 20,color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
                       "${widget.post.content}",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20,color: Colors.green),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Card(
-                      color: Colors.blueGrey.withOpacity(0.3),
+                      color: Colors.green.withOpacity(1),
                       semanticContainer: true,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -84,21 +101,21 @@ class _FullBlogPostState extends State<FullBlogPost> {
                           children: <Widget>[
                             Text(
                               'The Post Was Written By: ',
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(fontSize: 15,color: Colors.white),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             Text(
                               'Name: ${widget.post.firstName} ${widget.post.lastName}',
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(fontSize: 15,color: Colors.white),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             Text(
                               'Email: ${widget.post.email}',
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(fontSize: 15,color: Colors.white),
                             ),
                             SizedBox(
                               height: 5,

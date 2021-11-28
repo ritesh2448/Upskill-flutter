@@ -11,20 +11,13 @@ class CustomizedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
-        color: backgroundColor,
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xFF9BAFC9),
-            offset: Offset(8, 6),
-            blurRadius: 10,
-          ),
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset(-8, -6),
-            blurRadius: 10,
-          )
-        ],
+        borderRadius: BorderRadius.circular(15.0),
+        border: Border.all(
+          color: Colors.green,
+          style: BorderStyle.solid,
+          width: 2,),
+        color: Colors.black,
+        
       ),
       child: child,
     );

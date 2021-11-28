@@ -1,5 +1,6 @@
 class Post {
   final String title;
+  final String fees;
   final String content;
   final String type;
   final String datetime;
@@ -10,6 +11,7 @@ class Post {
 
   Post(
       {this.title,
+      this.fees,
       this.content,
       this.type,
       this.datetime,
@@ -21,6 +23,7 @@ class Post {
   factory Post.fromMap(Map<String, dynamic> data) {
     return Post(
       title: data["title"],
+      fees: data["fees"],
       content: data["content"],
       type: data["type"],
       datetime: data["datetime"],
@@ -34,6 +37,7 @@ class Post {
   Map<String, dynamic> toMap() {
     return {
       "title": title,
+      "fees": fees,
       "content": content,
       "type": type,
       "datetime": datetime,

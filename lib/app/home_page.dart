@@ -23,16 +23,16 @@ class _HomePageState extends State<HomePage> {
     final database = Provider.of<DatabaseServices>(context, listen: false);
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0,
         title: Text(
-          'Gather',
+          'Upskill',
           style: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Samantha',
-            fontSize: 50,
+            color: Colors.green,
+            fontFamily: '',
+            fontSize: 35,
           ),
         ),
         actions: <Widget>[
@@ -60,11 +60,11 @@ class _HomePageState extends State<HomePage> {
                               'Profile',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                  color: Colors.green),
                             ),
                             Icon(
                               Icons.person,
-                              color: Colors.black,
+                              color: Colors.green,
                               size: 30,
                             ),
                           ],
@@ -92,11 +92,11 @@ class _HomePageState extends State<HomePage> {
                             'Your Account',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.green),
                           ),
                           Icon(
                             Icons.person,
-                            color: Colors.black,
+                            color: Colors.green,
                             size: 30,
                           ),
                         ],
@@ -111,11 +111,11 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Profile',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
+                            fontWeight: FontWeight.bold, color: Colors.green),
                       ),
                       Icon(
                         Icons.person,
-                        color: Colors.black,
+                        color: Colors.green,
                         size: 30,
                       ),
                     ],
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                 return Center(
                   child: Text(
                     'No Posts yet',
-                    style: TextStyle(color: Colors.grey, fontSize: 30),
+                    style: TextStyle(color: Colors.green, fontSize: 30),
                   ),
                 );
               }
@@ -164,14 +164,14 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               Text(
                                 'All Posts',
-                                style: TextStyle(color: Colors.black38, fontSize: 35),
+                                style: TextStyle(color: Colors.green, fontSize: 35),
                               ),
                               SizedBox(
                                 width: 7,
                               ),
                               Icon(
                                 Icons.arrow_downward,
-                                color: Colors.black38,
+                                color: Colors.green,
                                 size: 40,
                               )
                             ],
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
             }
             return Center(
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
               ),
             );
           }),
@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                   child: Icon(
                     Icons.add,
                     size: 35,
-                    color: Colors.grey.withOpacity(0.7),
+                    color: Colors.green.withOpacity(0.7),
                   ),
                 );
               }
@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                 child: Icon(
                   Icons.add,
                   size: 35,
-                  color: Colors.grey.withOpacity(0.7),
+                  color: Colors.green.withOpacity(0.7),
                 ),
               );
             }
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
               child: Icon(
                 Icons.add,
                 size: 35,
-                color: Colors.grey.withOpacity(0.7),
+                color: Colors.green.withOpacity(0.7),
               ),
             );
           }),

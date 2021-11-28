@@ -50,6 +50,7 @@ class _LoginState extends State<Login> {
           return AlertDialog(
             backgroundColor: backgroundColor,
             title: new Text("${e.code}"),
+            
             content: new Text("${e.details}"),
             actions: <Widget>[
               // usually buttons at the bottom of the dialog
@@ -73,12 +74,12 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Colors.green,
         ),
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.black,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -88,7 +89,7 @@ class _LoginState extends State<Login> {
             child: Column(
               children: <Widget>[
                 Image.asset(
-                  'images/logo.png',
+                  'images/logo.jpeg',
                   height: 220,
                   width: MediaQuery.of(context).size.width - 100,
                   fit: BoxFit.contain,
@@ -100,11 +101,13 @@ class _LoginState extends State<Login> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 18.0),
                         child: TextField(
+                          style: TextStyle(color: Colors.white),
+                        
                           keyboardType: TextInputType.emailAddress,
                           controller: _emailController,
-                          cursorColor: Colors.black,
+                          cursorColor: Colors.white,
                           decoration: InputDecoration(
-                              labelStyle: TextStyle(color: Colors.black),
+                              labelStyle: TextStyle(color: Colors.white),
                               border: InputBorder.none,
                               labelText: 'Email',
                               hintText: 'test@abc.com'),
@@ -116,12 +119,13 @@ class _LoginState extends State<Login> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 18.0),
                         child: TextField(
+                          style: TextStyle(color: Colors.white),
                           controller: _passwordController,
-                          cursorColor: Colors.black,
+                          cursorColor: Colors.white,
                           obscureText: true,
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            labelStyle: TextStyle(color: Colors.black),
+                            labelStyle: TextStyle(color: Colors.white),
                             labelText: 'Password',
                           ),
                         ),
@@ -134,16 +138,16 @@ class _LoginState extends State<Login> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 18.0),
                           child: RaisedButton(
-                            color: backgroundColor,
+                            color: Colors.green,
                             elevation: 0,
                             onPressed: loading ? (){} : _submit,
                             child: loading
                                 ? CircularProgressIndicator(
-                              backgroundColor: backgroundColor,
+                              backgroundColor: Colors.white,
                                     valueColor: AlwaysStoppedAnimation<Color>(
-                                        Colors.blueGrey),
+                                        Colors.green),
                                   )
-                                : Text('Log In'),
+                                : Text('Log In',style: TextStyle(color: Colors.white),),
                           ),
                         ),
                       ),
@@ -159,7 +163,7 @@ class _LoginState extends State<Login> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 18.0),
                         child: FlatButton(
-                          color: Colors.white,
+                          color: Colors.green,
                           onPressed: () {
                             Navigator.pop(context);
                             Navigator.push(
@@ -169,7 +173,7 @@ class _LoginState extends State<Login> {
                               ),
                             );
                           },
-                          child: Text('Don\'t have an account? Sign up'),
+                          child: Text('Don\'t have an account? Sign up',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                     ),
