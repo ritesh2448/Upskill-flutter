@@ -1,6 +1,7 @@
 import 'package:blog_app/app/create_new_post_page.dart';
 import 'package:blog_app/app/post_view_card.dart';
 import 'package:blog_app/app/profile_page.dart';
+import 'package:blog_app/app/search.dart';
 import 'package:blog_app/authentication/auth.dart';
 import 'package:blog_app/models/post.dart';
 import 'package:blog_app/models/user.dart';
@@ -150,6 +151,31 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Container(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height/15,
+                  color: Color.fromARGB(255, 21, 35, 55),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(5,5,5,5),
+                    child: FlatButton.icon(
+                      color: Colors.white,
+                      icon: Icon(Icons.search,
+                        color: Colors.grey,
+                      ),
+                      label: Text("Search for clases",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.grey
+                        ),
+                      ),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => SearchUser(),
+                        ));
+                      },
+                    ),
+                  ),
+                ),
                         Container(
                           width: screenWidth,
                           height: screenWidth * 9 / 16,

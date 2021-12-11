@@ -9,6 +9,7 @@ abstract class DatabaseServices {
   Stream<List<Post>> getAllPosts();
   Future<User> getUserData(String uid);
   Stream<List<Post>> getAllUsersPosts(String uid);
+  Future<List<dynamic>> search_filter(String title);
 }
 
 class Database implements DatabaseServices{
@@ -37,6 +38,24 @@ class Database implements DatabaseServices{
     final snapshots = reference.snapshots();
     return snapshots.map((snapshot) =>
         snapshot.documents.map((e) => Post.fromMap(e.data)).toList());
+  }
+
+   Future<List<dynamic>> search_filter(String title) async{
+    String path = "posts/";
+    final reference = Firestore.instance.collection(path);
+    
+    final docs = await reference.getDocuments().then((value) =>value);
+    return docs.documents.map((e) {
+      if(e.data["title"].toString().contains(title))
+      {
+        return Post.fromMap(e.data);
+      }
+      else{
+        return " ";
+      }
+
+    }).toList();
+        
   }
 
   Future<void> createPost(String uid, Post post) async {
