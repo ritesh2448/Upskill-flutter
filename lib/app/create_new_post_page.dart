@@ -181,12 +181,12 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                       underline: Container(),
                       items: <String>[
                         '-----Post Type------',
-                        'Science',
-                        'Arts',
+                        'Engineering',
+                        'Medical',
                         'Commerce',
-                        'Acedemic',
-                        'Non Acedemic',
-                        'Entertainment',
+                        'Academic Tuitions',
+                        'Extra Curricular',
+                        'Others',
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -293,7 +293,7 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
       keyboardType: TextInputType.multiline,
       decoration: InputDecoration(
         alignLabelWithHint: true,
-        labelText: 'Content',
+        labelText: 'Description',
         labelStyle: TextStyle(color: Colors.white),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(

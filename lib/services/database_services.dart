@@ -46,7 +46,7 @@ class Database implements DatabaseServices{
     
     final docs = await reference.getDocuments().then((value) =>value);
     return docs.documents.map((e) {
-      if(e.data["title"].toString().contains(title))
+      if(e.data["title"].toString().toLowerCase().contains(title.toLowerCase()))
       {
         return Post.fromMap(e.data);
       }

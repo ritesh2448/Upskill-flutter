@@ -6,27 +6,27 @@ import 'package:flutter/material.dart';
 List<Map<String, dynamic>> items = [
   {
     "placeImage": "images/tech.jpg",
-    "placeName": "Science",
+    "placeName": "Engineering",
   },
   {
-    "placeImage": "images/politics.jpg",
-    "placeName": "Arts",
+    "placeImage": "images/medical.jpg",
+    "placeName": "Medical",
   },
   {
-    "placeImage": "images/fashion.png",
+    "placeImage": "images/Commerce.png",
     "placeName": "Commerce",
   },
   {
     "placeImage": "images/social.jpg",
-    "placeName": "Acedemic",
+    "placeName": "Academic Tuitions",
   },
   {
-    "placeImage": "images/finance.jpeg",
-    "placeName": "Non Acedemic",
+    "placeImage": "images/non-academic.jpg",
+    "placeName": "Extra Curricular",
   },
   {
-    "placeImage": "images/entertain.jpg",
-    "placeName": "Entertainment",
+    "placeImage": "images/Others.jpg",
+    "placeName": "Others",
   }
 ];
 class PageViewCard extends StatelessWidget {

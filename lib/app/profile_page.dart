@@ -93,43 +93,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: 25,
             ),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black,
-                      offset: Offset(4, 4),
-                      blurRadius: 8,
-                      spreadRadius: 2,
-                    ),
-                    BoxShadow(
-                      color: Colors.black,
-                      offset: Offset(-4, -4),
-                      blurRadius: 8,
-                      spreadRadius: 2,
-                    )
-                  ]),
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                color: Colors.green,
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Update Profile',
-                      style:
-                          TextStyle(color:Colors.white,fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-            ),
+           
             SizedBox(
               height: 15,
             ),
