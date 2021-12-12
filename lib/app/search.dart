@@ -8,15 +8,15 @@ import 'package:provider/provider.dart';
 
 
 
-class SearchUser extends StatefulWidget {
+class SearchPost extends StatefulWidget {
 
 
-  SearchUser();
+  SearchPost();
   @override
-  _SearchUserState createState() => _SearchUserState();
+  _SearchPostState createState() => _SearchPostState();
 }
 
-class _SearchUserState extends State<SearchUser> {
+class _SearchPostState extends State<SearchPost> {
   String value = "";
 
   void onSearch(String val){
